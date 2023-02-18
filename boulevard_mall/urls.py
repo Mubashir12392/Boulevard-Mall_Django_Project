@@ -22,10 +22,10 @@ from shop.views import makeup
 from shop.views import phone
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', pakistan_store),
-    path('home/shop/', shop_categories),
-    path('home/shop/grocery/', grocery),
-    path('home/shop/makeup/', makeup),
-    path('home/shop/mobilephone/', phone)
+    path('home/', pakistan_store, name='homepage'),
+    path('home/shop/', shop_categories, name='shop_page'),
+    path('home/shop/grocery/', grocery, name='grocery_shop'),
+    path('home/shop/makeup/', makeup, name='makeup_shop'),
+    path('home/shop/mobilephone/', phone, name='phone_shop')
 
 ]

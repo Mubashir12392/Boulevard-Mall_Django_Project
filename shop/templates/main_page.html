@@ -138,7 +138,7 @@
 		<nav>
 			<ul>
 				<li><a href="">Home</a></li>
-				<li><a href="shop/">Shop</a></li>
+				<li><a href="{% url 'shop_page' %}">Shop</a></li>
 				<li><a href="#">About</a></li>
 				<li><a href="#">Contact</a></li>
 			</ul>
@@ -148,7 +148,7 @@
 		<section class="hero">
 			<h2>Welcome to Our Store</h2>
 			<p>Shop our latest products and find great deals on high-quality items.</p>
-			<a href="shop/" class="cta">Shop Now</a>
+			<a href="{% url 'shop_page' %}" class="cta">Shop Now</a>
 		</section>
 		<section class="products">
 			<h2>Featured Products</h2>
