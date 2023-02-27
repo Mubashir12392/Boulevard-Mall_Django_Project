@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MAKEUP PRODUCTS</title>
+    <title>SkinCare PRODUCTS</title>
     <style>
         /* Reset Styles */
 * {
@@ -89,19 +89,18 @@ main {
   </head>
   <body>
     <header>
-      <h1>MAKEUP</h1>
+      <h1>SKINCARE</h1>
     </header>
     <main>
-        {% for value in makeup %}
+        {% for value in product %}
 
       <ul class="product-listing">
         <li class="product-item">
           <img src="product-1.jpg" alt="Product 1">
           <h2>{{value.product_name}}</h2>
-          <p class="product-description">{{value.description}}</p>
+          <p class="product-description">{{value.details}}</p>
           <p class="product-price">${{value.price}}</p>
         </li>
-
         {% endfor %}
         <!-- Add more products as needed -->
       </ul>
