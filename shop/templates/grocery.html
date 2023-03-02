@@ -92,11 +92,13 @@ main {
       <h1>GROCERIES</h1>
     </header>
     <main>
-        {% for value in groceri %}
+        {% for value in groceries %}
 
       <ul class="product-listing">
         <li class="product-item">
-          <img src="product-1.jpg" alt="Product 1">
+          {% if value.image %}
+            <img src="{{ value.image.url }}" alt="Image" style="max-width: 70%; max-height:400px;">
+          {% endif %}
           <h2>{{value.product_name}}</h2>
           <p class="product-description">{{value.description}}</p>
           <p class="product-price">{{value.price}}</p>

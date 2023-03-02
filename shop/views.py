@@ -1,7 +1,5 @@
-from django.shortcuts import render
-from shop.models import Groceries
-from shop.models import Makeup
-from shop.models import Mobile_phones
+from django.shortcuts import render,reverse, redirect
+from shop.models import Groceries, Makeup, Mobile_phones, Skincare, Perfume, HomeAppliances
 # Create your views here.
 
 def pakistan_store(request):
@@ -11,16 +9,16 @@ def shop_categories(request):
     return render(request, 'shop_page.html')
 
 def grocery(request):
-    groceri = Groceries.objects.all()
+    groceries = Groceries.objects.all()
     context = {
-        'groceri' : groceri
+        'groceries' : groceries
     }
     return render(request, 'grocery.html', context=context)
 
 def makeup(request):
-    beauty = Makeup.objects.all()
+    makeup = Makeup.objects.all()
     context = {
-        'makeup' : beauty
+        'makeup' : makeup
     }
     return render(request, 'makeup.html', context=context )
 
@@ -32,4 +30,27 @@ def phone(request):
     return render(request, 'phone.html', context=context)
 
 
+def skin_care(request):
+    product = Skincare.objects.all()
+    context = {
+        'product' : product
+    }
+    return render(request, 'skin_care.html', context=context)
 
+def perfume(request):
+    if request.method == "GET":
+        product = Perfume.objects.all()
+        context = {
+            'product' : product
+        }
+        return render(request, 'perfume.html', context=context)
+    return redirect(reverse('shop_page'))
+
+def home_appliances(request):
+    if request.method == "GET":
+        product = HomeAppliances.objects.all() 
+        context = {
+            'product' :  product
+        }
+        return render(request, 'home_appliances.html', context=context)
+    return redirect(reverse('shop_page'))
