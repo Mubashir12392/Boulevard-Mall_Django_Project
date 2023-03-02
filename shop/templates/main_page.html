@@ -1,184 +1,333 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Boulevard Mall</title>
-	<style>
-        body {
-            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            margin: 0;
-          }
-          
-          header {
-            background: linear-gradient(to right, #0099ff, #ff3399);
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-          }
-          
-          nav ul {
-            list-style: none;
-            display: flex;
-          }
-          
-          nav li {
-            margin: 0 10px;
-          }
-          
-          nav a {
-            color: #fff;
-            text-decoration: none;
-          }
-          
-          main {
-            padding: 20px;
-          }
-          
-          .hero {
-            background-image: url(https://imgs.search.brave.com/g3H9wktBxVkl2IP0iToJAgJLkgfh3wvZ-M7O1AWjZ2g/rs:fit:1200:1024:1/g:ce/aHR0cHM6Ly93d3cu/d29tZW5maXRuZXNz/Lm5ldC93cC93cC1j/b250ZW50L3VwbG9h/ZHMvMjAxNy8wOS9X/b21lbi1BbmQtU2hv/cHBpbmctQWRkaWN0/aW9uLmpwZw);
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color:whitesmoke;
-            text-align: center;
-          }
-          
-          .hero h2 {
-            font-size: 40px;
-            margin: 0;
-          }
-          
-          .hero p {
-            font-size: 20px;
-            margin: 20px 0;
-          }
-          
-          .cta {
-            background-color: #fff;
-            color: #333;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-          }
-          
-          .cta:hover {
-            background-color: #333;
-            color: #fff;
-          }
-          
-          .products {
-            margin-top: 50px;
-          }
-          
-          .product-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-          }
-          
-          .product {
-            width: 30%;
-            margin-bottom: 50px;
-            border: 1px solid #ccc;
-            padding: 20px;
-            text-align: center;
-          }
-          
-          .product img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-          }
-          
-          .product h3 {
-            font-size: 24px;
-            margin: 0;
-          }
-          
-          .product p {
-            font-size: 20px;
-            margin: 20px 0;
-          }
-          
-          .product .cta {
-            background-color: #fff;
-            color: #333;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-          }
-          
-          .product .cta:hover {
-            background-color: #333;
-            color: #fff;
-          }
-          
-          footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-          }
-          price{
-            margin-top: 10%;
-          }
-          
+  <head>
+    <title>Boulevard Mall</title>
+    <style>
+      body {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin: 0;
+      }
+
+      .navbar {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .navbar {
+        background: linear-gradient(135deg, #FF6B6B, #D73878, #8E2DE2);
+      }
+
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+        perspective: 1000px;
+      }
+
+      .cube {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.2);
+        transform-style: preserve-3d;
+        animation: rotate 10s infinite linear;
+      }
+
+      .cube:nth-child(1) {
+        top: 10%;
+        left: 10%;
+        animation-delay: -2s;
+      }
+
+      .cube:nth-child(2) {
+        top: 30%;
+        left: 50%;
+        animation-delay: -5s;
+      }
+
+      .cube:nth-child(3) {
+        top: 70%;
+        left: 80%;
+        animation-delay: -7s;
+      }
+
+      .logo a {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        text-decoration: none;
+      }
+
+      .navbar-links ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar-links li {
+        margin-right: 20px;
+      }
+
+      .navbar-links a {
+        font-size: 16px;
+        color: #333;
+        text-decoration: none;
+      }
+
+      .navbar-icons ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navbar-icons li {
+        margin-right: 20px;
+      }
+
+      .navbar-icons a {
+        font-size: 20px;
+        color: #333;
+        text-decoration: none;
+      }
+
+      .fa-heart:before {
+        content: "\f004";
+      }
+
+      .fa-user:before {
+        content: "\f007";
+      }
+
+      .fa-shopping-cart:before {
+        content: "\f07a";
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotateY(0deg) rotateX(0deg);
+        }
+
+        100% {
+          transform: rotateY(360deg) rotateX(360deg);
+        }
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        background: #333;
+        overflow: hidden;
+      }
+      
+      .hero:before {
+        content: "";
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        z-index: -1;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+        transform: rotateZ(45deg);
+        animation: heroBackground 20s linear infinite;
+      }
+      
+      @keyframes heroBackground {
+        from {
+          transform: rotateZ(0);
+        }
+        to {
+          transform: rotateZ(360deg);
+        }
+      }
+      
+      .hero h2,
+      .hero p,
+      .hero a {
+        position: relative;
+        z-index: 1;
+        color: #fff;
+        text-align: center;
+      }
+      
+      .hero h2 {
+        font-size: 3rem;
+        margin-top: 100px;
+      }
+      
+      .hero p {
+        font-size: 1.5rem;
+        margin-top: 20px;
+      }
+      
+      .hero a.cta {
+        display: inline-block;
+        background-color: #fff;
+        color: #333;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 10px 30px;
+        margin-top: 5px;
+        border-radius: 25px;
+        margin-left: 43%;
+        margin-bottom: 10%;
+      }
+      
+
+      .products {
+        margin-top: 50px;
+      }
+
+      .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .product {
+        width: 30%;
+        margin-bottom: 50px;
+        border: 1px solid #ccc;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .product img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .product h3 {
+        font-size: 24px;
+        margin: 0;
+      }
+
+      .product p {
+        font-size: 20px;
+        margin: 20px 0;
+      }
+
+      .product .cta {
+        background-color: #fff;
+        color: #333;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      .product .cta:hover {
+        background-color: #333;
+        color: #fff;
+      }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        text-align: center;
+      }
+
+      price {
+        margin-top: 10%;
+      }
     </style>
-</head>
-<body>
-	<header>
-		<div class="logo">
-			<h1>BOULEVARD MALL</h1>
-		</div>
-		<nav>
-			<ul>
-				<li><a href="">Home</a></li>
-				<li><a href="{% url 'shop_page' %}">Shop</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Contact</a></li>
-			</ul>
-		</nav>
-	</header>
-	<main>
-		<section class="hero">
-			<h2>Welcome to Our Store</h2>
-			<p>Shop our latest products and find great deals on high-quality items.</p>
-			<a href="{% url 'shop_page' %}" class="cta">Shop Now</a>
-		</section>
-		<section class="products">
-			<h2>Featured Products</h2>
-			<div class="product-container">
-				<div class="product">
-					<img src="https://imgs.search.brave.com/O8bbC_Ex19aM4jillsoVcoMT6RrBLAFkTTvo8iEcdP0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pMS53/cC5jb20vYWUwMS5h/bGljZG4uY29tL2tm/L0hUQjFaclF4WExj/M1QxVmpTWkxlcTZ6/WnNWWGE1L0xJR0Ut/TmV3LU1lbnMtV2F0/Y2hlcy1Ub3AtQnJh/bmQtTHV4dXJ5LUNo/cm9ub2dyYXBoLU1l/bi1XYXRjaC1MZWF0/aGVyLUx1eHVyeS1X/YXRlcnByb29mLVNw/b3J0LVdhdGNoLU1l/bi5qcGc_Zml0PTgw/MCUyQzgwMCZzc2w9/MQ">
-					<h3>
-                        LIGE New Mens Watches Top Brand Luxury Chronograph Men Watch Leather Luxury Waterproof Sport ...</h3>
-					<p>$1999.99</p>
-					<a href="#" class="cta">Add to Cart</a>
-				</div>
-				<div class="product">
-					<img src="https://imgs.search.brave.com/TH4YbmSPv8_sRLRipm1jJKbWXCb-zokFaJEY2PUyaFw/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly92aXRy/dXZpYW5tYWdhemlu/ZS5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMTkvMDcvQXZp/YXRvci1zdW5nbGFz/c2VzLU1FLXBpYy0y/LmpwZw">
-					<h3>
-                        Menswear Essentials: Aviator Sunglasses</h3
-					<p class="price">$29.99</p>
-					<a href="#" class="cta">Add to Cart</a>
-				</div>
-				<div class="product">
-					<img src="https://imgs.search.brave.com/bYnSKlxAPlBMSLM6eHj3CCsvjtMupGqsyBnk7V-DNVE/rs:fit:1200:1200:1/g:ce/aHR0cDovLzIuYnAu/YmxvZ3Nwb3QuY29t/Ly15cjNzckFBdjdV/US9WbnVYUDFHdDNC/SS9BQUFBQUFBQUhi/US9YdjFjZkF5dXlj/RS9zMTYwMC9neW0t/Zml0bmVzcy1jbG90/aGVzLTMuanBn">
-					<h3>
-                        The perfect Gym fitness wear for better performance. | Men's Fitness & Workouts Fix.</h3>
-					<p>$39.99</p>
-					<a href="#" class="cta">Add to Cart</a>
-				</div>
-			</div>
-		</section>
-	</main>
-	<footer>
-		<p>&copy; 2023 My Store. All rights reserved.</p>
-	</footer>
-</body>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="background">
+          <div class="cube"></div>
+          <div class="cube"></div>
+          <div class="cube"></div>
+        </div>
+        <div class="logo">
+          <a href="#">BOULEVARD MALL</a>
+        </div>
+        <div class="navbar-links">
+          <ul>
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'shop_page' %}">Shop</a>
+            </li>
+            <li>
+              <a href="#">Sale</a>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-icons">
+          <ul>
+            <li>
+              <a href="#">
+                <i class="fas fa-heart"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fas fa-user"></i>
+              </a>
+            </li>
+            <li class="cart-icon">
+              <a href="#">
+                <i class="fas fa-shopping-cart"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <h2>Welcome to Our Store</h2>
+        <p>Shop our latest products and find great deals on high-quality items.</p>
+        <a href="{% url 'shop_page' %}" class="cta">Shop Now</a>
+      </section>
+      <section class="products">
+        <h2>Featured Products</h2>
+        <div class="product-container">
+          <div class="product">
+            <img src="https://imgs.search.brave.com/O8bbC_Ex19aM4jillsoVcoMT6RrBLAFkTTvo8iEcdP0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pMS53/cC5jb20vYWUwMS5h/bGljZG4uY29tL2tm/L0hUQjFaclF4WExj/M1QxVmpTWkxlcTZ6/WnNWWGE1L0xJR0Ut/TmV3LU1lbnMtV2F0/Y2hlcy1Ub3AtQnJh/bmQtTHV4dXJ5LUNo/cm9ub2dyYXBoLU1l/bi1XYXRjaC1MZWF0/aGVyLUx1eHVyeS1X/YXRlcnByb29mLVNw/b3J0LVdhdGNoLU1l/bi5qcGc_Zml0PTgw/MCUyQzgwMCZzc2w9/MQ">
+            <h3> LIGE New Mens Watches Top Brand Luxury Chronograph Men Watch Leather Luxury Waterproof Sport ...</h3>
+            <p>$1999.99</p>
+            <a href="#" class="cta">Add to Cart</a>
+          </div>
+          <div class="product">
+            <img src="https://imgs.search.brave.com/TH4YbmSPv8_sRLRipm1jJKbWXCb-zokFaJEY2PUyaFw/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly92aXRy/dXZpYW5tYWdhemlu/ZS5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMTkvMDcvQXZp/YXRvci1zdW5nbGFz/c2VzLU1FLXBpYy0y/LmpwZw">
+            <h3> Menswear Essentials: Aviator Sunglasses</h3 <p class="price">$29.99</p>
+            <a href="#" class="cta">Add to Cart</a>
+          </div>
+          <div class="product">
+            <img src="https://imgs.search.brave.com/bYnSKlxAPlBMSLM6eHj3CCsvjtMupGqsyBnk7V-DNVE/rs:fit:1200:1200:1/g:ce/aHR0cDovLzIuYnAu/YmxvZ3Nwb3QuY29t/Ly15cjNzckFBdjdV/US9WbnVYUDFHdDNC/SS9BQUFBQUFBQUhi/US9YdjFjZkF5dXlj/RS9zMTYwMC9neW0t/Zml0bmVzcy1jbG90/aGVzLTMuanBn">
+            <h3> The perfect Gym fitness wear for better performance. | Men's Fitness & Workouts Fix.</h3>
+            <p>$39.99</p>
+            <a href="#" class="cta">Add to Cart</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 My Store. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
