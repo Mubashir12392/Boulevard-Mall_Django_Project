@@ -1,4 +1,4 @@
-# Online Shopping Store Django Project
+# Boulevard Mall Django Project
 
 This is a Django project that allows users to browse and purchase products from an online store. Users can create accounts, add items to their cart, and checkout securely using Stripe payment processing.
 
@@ -9,6 +9,22 @@ This is a Django project that allows users to browse and purchase products from 
 - Add items to cart and adjust quantities
 - Checkout securely using Stripe payment processing
 - View order history and update account information
+
+## Project Images
+<p align="center">
+<img src="staticfiles/img/Screenshot from 2023-03-04 00-37-29.png" alt="pic" width="1000">
+</p>
+<p align="center">
+<img src="staticfiles/img/Screenshot from 2023-03-04 00-38-19.png" alt="pic" width="1000">
+</p>
+<p align="center">
+<img src="staticfiles/img/Screenshot from 2023-03-04 00-38-42.png" alt="pic" width="1000">
+</p>
+<p align="center">
+<img src="staticfiles/img/Screenshot from 2023-03-04 00-39-11.png" alt="pic" width="1000">
+</p>
+
+
 
 ## Getting Started
 
