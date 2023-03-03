@@ -17,21 +17,23 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from shop.views import pakistan_store, shop_categories, grocery, makeup, phone, skin_care, perfume, home_appliances
-from core.views import  home_core
+from shop.views import boulevard,shoppingcart,shopproducts,checkout,feature,contact
+
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('home/', pakistan_store, name='homepage'),
-    path('home/shop/', shop_categories, name='shop_page'),
-    path('home/shop/grocery/', grocery, name='grocery_shop'),
-    path('home/shop/makeup/', makeup, name='makeup_shop'),
-    path('home/shop/mobilephone/', phone, name='phone_shop'),
-    path('home/shop/skincare/', skin_care, name='skin-care'),
-    path('home/shop/perfume/', perfume, name='perfume'),
-    path('home/shop/home/appliances', home_appliances, name='home-appliances'),
-    path('', home_core, name='home-core'),
+    path('admin/',admin.site.urls),
+    path('home/',boulevard, name='homepage'),
+    path('home/cart/',shoppingcart, name='cart'),
+    path('home/shop/',shopproducts,name='shop'),
+    path('home/cart/checkout/',checkout, name='checkout'),
+    path('home/feature_products/',feature, name='feature'),
+    path('home/contact/',contact, name='contact')
+
+   
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_URL)
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
  
