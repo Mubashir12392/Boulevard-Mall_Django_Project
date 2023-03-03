@@ -1,5 +1,5 @@
 from django.contrib import admin
-from shop.models import Groceries, Makeup, Mobile_phones, Skincare, Perfume, HomeAppliances
+from shop.models import Makeup, Mobile_phones, Skincare, Perfume, HomeAppliances
 
 class ProductAdmin(admin.ModelAdmin):
     list_display= ['product_name', 'description', 'price']
@@ -9,7 +9,7 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields= ['product_name', 'price']
     save_as= True
     save_as_top= True
-admin.site.register(Groceries, ProductAdmin)
+
 admin.site.register(Makeup, ProductAdmin)
 @admin.register(Mobile_phones)
 class Mobile_phonesAdmin(admin.ModelAdmin):
