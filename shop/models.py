@@ -4,18 +4,7 @@ STOCK_CHOICES = [
     ("N", "No"),
     ("Y", "Yes"),
 ]
-class Groceries(models.Model):
-    product_name = models.CharField(max_length=30)
-    description = models.CharField(max_length=30, blank=True, null=True)
-    image = models.ImageField(upload_to="shop_images/", null=True, blank=True)
-    left_quantity_in_packets = models.PositiveIntegerField(blank=True, null=True)
-    left_quantity_in_weight = models.CharField(max_length=10, blank=True, null=True)
-    left_quantity_in_volume = models.CharField(max_length=10, blank=True, null=True)
-    price = models.CharField(max_length=10,default=0)
-    monthly_sale = models.PositiveIntegerField()
-    left_stock = models.CharField(max_length=30)
-    ordered_new_stock = models.CharField(max_length=10, choices=STOCK_CHOICES)
-    receive_at = models.DateField(auto_now_add=True, null=True, blank=True)
+
     
 class Makeup(models.Model):
     product_name = models.CharField(max_length=50)
