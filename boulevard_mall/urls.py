@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from shop.views import boulevard,shoppingcart,shopproducts,checkout,feature,contact
+from shop.views import boulevard,shoppingcart,shopproducts,checkout,feature,contact,login,register
 
 
 urlpatterns = [
@@ -27,7 +27,9 @@ urlpatterns = [
     path('home/shop/',shopproducts,name='shop'),
     path('home/cart/checkout/',checkout, name='checkout'),
     path('home/feature_products/',feature, name='feature'),
-    path('home/contact/',contact, name='contact')
+    path('home/contact/',contact, name='contact'),
+    path('home/login/',login,name='login'),
+    path('home/register/', register,name='register')
 
    
 ]
